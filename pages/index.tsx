@@ -29,7 +29,8 @@ function ProtectedPage() {
   }
 
   async function fetchUserData() {
-    await fetch('http://localhost:3030/api/user/info');
+    const appName = process.env.SUPERTOKENS_API_DOMAIN;
+    await fetch(`${appName}/api/user/info`);
   }
 
   if (session.loading === true) {
