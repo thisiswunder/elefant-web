@@ -10,6 +10,7 @@ WORKDIR /app
 
 # Install dependencies based on the preferred package manager
 COPY package.json bun.lockb* ./
+
 RUN if [[ $(uname -m) == "aarch64" ]] ; \
     then \
     # aarch64
@@ -23,6 +24,8 @@ RUN if [[ $(uname -m) == "aarch64" ]] ; \
     apk add --no-cache --force-overwrite glibc-2.28-r0.apk ; \
     rm glibc-2.28-r0.apk ; \
     fi
+
+RUN npm install -g bun
 
 RUN bun install
 
@@ -43,7 +46,7 @@ RUN if [[ $(uname -m) == "aarch64" ]] ; \
     apk add --no-cache --force-overwrite glibc-2.28-r0.apk ; \
     rm glibc-2.28-r0.apk ; \
     fi
-    
+
 RUN npm install -g bun
 
 COPY --from=deps /app/node_modules ./node_modules
