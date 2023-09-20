@@ -6,11 +6,11 @@ import Router from 'next/router';
 export const frontendConfig = () => {
   return {
     appInfo: {
-      appName: 'https://supertokens-docker-postgresql-wlhmostm3q-ez.a.run.app',
-      websiteDomain: 'http://localhost:3000',
-      apiDomain: 'http://localhost:3030',
-      apiBasePath: '/api/auth',
-      websiteBasePath: '/auth',
+      appName: process.env.SUPERTOKENS_APP_NAME,
+      websiteDomain: process.env.SUPERTOKENS_WEBSITE_DOMAIN,
+      apiDomain: process.env.SUPERTOKENS_API_DOMAIN,
+      apiBasePath: process.env.SUPERTOKENS_API_BASE_PATH,
+      websiteBasePath: process.env.SUPERTOKENS_WEBSITE_BASE_PATH,
     },
     // recipeList contains all the modules that you want to
     // use from SuperTokens. See the full list here: https://supertokens.com/docs/guides
