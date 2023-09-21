@@ -26,6 +26,7 @@ export const frontendConfig = () => {
       }),
       SessionReact.init(),
     ],
+    clientType: 'web-and-android',
     // this is so that the SDK uses the next router for navigation
     windowHandler: (oI) => {
       return {
