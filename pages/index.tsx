@@ -30,7 +30,8 @@ function ProtectedPage() {
 
   async function fetchUserData() {
     const appName = process.env.SUPERTOKENS_API_DOMAIN;
-    await fetch(`${appName}/api/user/info`);
+    const result = await fetch(`${appName}/api/user/info`);
+    console.log(result);
   }
 
   if (session.loading === true) {
